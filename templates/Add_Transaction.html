@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="background-color: lavender;">
+<h3>
+<a href="home.html" style="font-family: Tahoma">Home</a><br>
+<a href="Query_Results.html" style="font-family: Tahoma">Query Results</a><br>
+<a href="Buy_Stocks.html" style="font-family: Tahoma">Buy Stocks</a>
+</h3>
+<h1 style="text-align: center;font-family: Tahoma; color: indigo">Add New Transaction</h1>
+<form method="POST" style="text-align: center">
+{% csrf_token %}
+<h4 style="font-family: Tahoma">
+    ID: <input type="number" name="ID" minlength="2" maxlength="50" required> <br>
+    Transaction Sum: <input type="number" name="TSum" maxlength="50" required> <br>
+<button type="submit" value="Send">Submit</button></h4>
+</form>
+{% if sql_res4 != 0 %}
+    <h2 style="text-align: center;font-family: Tahoma">The ID is not valid!</h2>
+{% endif %}
+<h2 style="text-align: center;font-family: Tahoma; color: indigo">Last 10 Transactions:</h2>
+<table border="1" width="%" style="text-align: center;margin-left:auto;margin-right:auto">
+    <th bgcolor="#9370db">Date</th>
+    <th bgcolor="#9370db">Investor ID</th>
+    <th bgcolor="#9370db">Transaction Sum</th>
+    {% for Transactions in sql_res5 %}
+        <tr>
+        <td>{{ Transactions.tDate }}</td>
+        <td>{{ Transactions.ID }}</td>
+        <td>{{ Transactions.TQuantity }}</td>
+        </tr>
+    {% endfor %}
+</table><br>
+</body>
+</html>

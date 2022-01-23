@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="background-color: lavender;">
+<h2 style="text-align: center;font-family: Tahoma; color: indigo">Query 1</h2>
+<table border="1" width="%" style="text-align: center;margin-left:auto;margin-right:auto">
+    <th bgcolor="#9370db">Name</th>
+    <th bgcolor="#9370db">Total Sum</th>
+    {% for Varied_Investors_with_Total_Sum in sql_res1 %}
+        <tr>
+        <td>{{ Varied_Investors_with_Total_Sum.Name }}</td>
+        <td>{{ Varied_Investors_with_Total_Sum.Total_Sum }}</td>
+        </tr>
+    {% endfor %}
+</table><br>
+<h2 style="text-align: center;font-family: Tahoma; color: indigo">Query 2</h2>
+<table border="1" width="%" style="text-align: center;margin-left:auto;margin-right:auto">
+    <th bgcolor="#9370db">Symbol</th>
+    <th bgcolor="#9370db">Name</th>
+    <th bgcolor="#9370db">Quantity</th>
+    {% for Popular_Companies_Max_Investor in sql_res2 %}
+        <tr>
+        <td>{{ Popular_Companies_Max_Investor.Symbol }}</td>
+        <td>{{ Popular_Companies_Max_Investor.Name }}</td>
+        <td>{{ Popular_Companies_Max_Investor.Quantity }}</td>
+        </tr>
+    {% endfor %}
+</table><br>
+<h2 style="text-align: center;font-family: Tahoma; color: indigo">Query 3</h2>
+<table border="1" width="%" style="text-align: center;margin-left:auto;margin-right:auto">
+    <th bgcolor="#9370db">Date</th>
+    <th bgcolor="#9370db">Symbol</th>
+    <th bgcolor="#9370db">Name</th>
+    {% for A_Groise_mezie in sql_res3 %}
+        <tr>
+        <td>{{ A_Groise_mezie.tDate }}</td>
+        <td>{{ A_Groise_mezie.Symbol }}</td>
+        <td>{{ A_Groise_mezie.Name }}</td>
+        </tr>
+    {% endfor %}
+</table><br>
+
+<h3>
+<a href="home.html" style="font-family: Tahoma">Home</a><br>
+<a href="Buy_Stocks.html" style="font-family: Tahoma">Buy Stocks</a><br>
+<a href="Add_Transaction.html" style="font-family: Tahoma">Add Transaction</a>
+</h3>
+</body>
+</html>
